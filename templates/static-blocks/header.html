@@ -1,0 +1,54 @@
+<header class="container m-auto flex justify-between align-middle bg-black px-16 py-2 sticky top-0 z-50" id="start">
+    <div class="text-white flex items-center text-gray-300">
+        <a href="/"
+           class="group relative inline-block overflow-hidden rounded border border-black p-3 text-gray-300">
+            <span class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-red-800 transition-all duration-200 group-hover:w-full"></span>
+            <span class="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-red-800 transition-all duration-200 group-hover:h-full"></span>
+            <span class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-red-800 transition-all duration-200 group-hover:w-full"></span>
+            <span class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-red-800 transition-all duration-200 group-hover:h-full"></span>
+            <i class="fa-solid fa-house"></i>
+        </a>
+
+        {% with button_text="Про клуб" %}
+        {% with ref="#about" %}
+        {% include 'buttons/header-button.html' %}
+        {% endwith %}
+        {% endwith %}
+
+        {% with button_text="Коллекція ігор" %}
+        {% with ref="#games" %}
+        {% include 'buttons/header-button.html' %}
+        {% endwith %}
+        {% endwith %}
+
+        {% with button_text="Турніри та події" %}
+        {% with ref="#events" %}
+        {% include 'buttons/header-button.html' %}
+        {% endwith %}
+        {% endwith %}
+
+        {% with button_text="Бронь столу" %}
+        {% with ref="/booking" %}
+        {% include 'buttons/header-button.html' %}
+        {% endwith %}
+        {% endwith %}
+    </div>
+    <div class="text-white flex items-center text-gray-300">
+        <a href="#" class="mx-3 hover:text-white p-3 rounded text-2xl">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="#" class="mx-3 hover:text-white p-3 rounded text-2xl">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="mx-3 hover:text-white p-3 rounded text-2xl">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+    <div class="text-white flex items-center text-gray-300">
+        {% with button_text="Вхід / Реєстрація" %}
+        {% with ref="/auth" %}
+        {% include 'buttons/header-button.html' %}
+        {% endwith %}
+        {% endwith %}
+    </div>
+</header>

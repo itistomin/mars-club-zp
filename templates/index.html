@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block title %}Клуб M.A.R.S Запоріжжя{% endblock %}
+
+{% block content %}
+<main class="container mx-auto min-w-screen min-h-screen bg-black">
+
+    {% include 'landing-content/logo-welcome.html' %}
+    <hr class="w-4/5 m-auto" />
+
+    {% include 'landing-content/about.html' %}
+    <hr class="w-4/5 m-auto" />
+
+    {% include 'landing-content/games-list.html' %}
+    <hr class="w-4/5 m-auto" />
+
+    {% include 'landing-content/events.html' %}
+    <hr class="w-4/5 m-auto" />
+
+</main>
+{% endblock %}
