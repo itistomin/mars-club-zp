@@ -4,16 +4,16 @@
 
 {% block content %}
 <main class="container mx-auto min-w-screen min-h-screen bg-black">
-    <div class="grid grid-cols-2 grid-gap-4">
-        <div class="mt-24">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-4">
+        <div class="lg:mt-24 mx-5">
             <div class="">
                 <p class="text-4xl font-bold">Вибери зручний час та приходь!</p>
             </div>
             <br/>
             <p>Розташування столів:</p>
-            <img src="/static/media/schema.png" alt="tables" class="w-1/2"/>
-            <p class="inline-block pt-10">
-                Після бронювання, ти отримаєш підтвердження на пошту. <br/> Перевір спам! <br/> Якщо листа немає, напиши
+            <img src="/static/media/schema.png" alt="tables" class="lg:w-1/2"/>
+            <p class="inline-block pt-10 text-justify">
+                Після бронювання, ти отримаєш підтвердження на пошту. Перевір спам! Якщо листа немає, напиши
                 нам.
             </p>
             <br/>
@@ -30,12 +30,12 @@
                 </div>
                 <div class="items-center mt-5">
                     {% for week in dates_range %}
-                    <div class="grid grid-cols-7">
+                    <div class="grid grid-cols-7 gap-0">
                         {% for day in week %}
                         {% if day == 0 %}
-                        <div class="rounded font-bold px-3 py-2 m-3 bg-gray-800 opacity-60"></div>
+                        <div class="rounded font-bold lg:px-3 py-2 m-1 bg-gray-800 opacity-60"></div>
                         {% else %}
-                        <button class="rounded font-bold px-3 py-2 m-3 bg-red-800 active:bg-indigo-600">{{day}}</button>
+                        <button class="rounded font-bold lg:px-3 py-2 m-1 bg-red-800 active:bg-indigo-600">{{day}}</button>
                         {% endif %}
                         {% endfor %}
                     </div>
@@ -45,18 +45,18 @@
                     <input type="hidden" name="year" value="{{selected_date.year}}">
                 </div>
 
-                <div class="flex">
-                    <div class="flex flex-col w-full pr-5">
+                <div class="lg:flex lg:p-0 p-5">
+                    <div class="flex flex-col w-full lg:pr-5">
                         <label for="name" class="text-white">Ім'я</label>
                         <input type="text" name="name" id="name" class="p-2 rounded bg-gray-800 text-white" required>
                     </div>
-                    <div class="flex flex-col w-full pl-5">
+                    <div class="flex flex-col w-full lg:pl-5">
                         <label for="email" class="text-white">Email</label>
                         <input type="email" name="email" id="email" class="p-2 rounded bg-gray-800 text-white" required>
                     </div>
                 </div>
 
-                <div class="pt-5">
+                <div class="px-5 lg:p-0 lg:pt-5">
                     <select class="w-full p-2 rounded bg-gray-800 text-white">
                         <option value="1">Стіл 1</option>
                         <option value="2">Стіл 2</option>
@@ -67,20 +67,20 @@
                     </select>
                 </div>
 
-                <div class="flex py-5">
-                    <div class="flex flex-col w-full pr-5">
+                <div class="lg:flex lg:p-0 lg:py-5 px-5">
+                    <div class="flex flex-col w-full pr-5 pt-2">
                         <label for="time" class="text-white">Час</label>
                         <input type="time" name="time" id="time" value="10:00"
                                class="p-2 rounded bg-gray-800 text-white" required>
                     </div>
-                    <div class="flex flex-col w-full pl-5">
+                    <div class="flex flex-col w-full lg:pl-5 pt-2">
                         <label for="people" class="text-white">Кількість людей</label>
                         <input type="number" name="people" id="people" class="p-2 rounded bg-gray-800 text-white"
                                required>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
+                <div class="flex flex-col lg:p-0 p-5">
                     <button type="submit" class="p-2 bg-red-800 text-white rounded">Забронювати</button>
                 </div>
             </form>
