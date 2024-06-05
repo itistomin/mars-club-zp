@@ -11,19 +11,19 @@
         </a>
 
         {% with button_text="Про клуб" %}
-        {% with ref="#about" %}
+        {% with ref="/#about" %}
         {% include 'buttons/header-button.html' %}
         {% endwith %}
         {% endwith %}
 
         {% with button_text="Колекція ігор" %}
-        {% with ref="#games" %}
+        {% with ref="/#games" %}
         {% include 'buttons/header-button.html' %}
         {% endwith %}
         {% endwith %}
 
         {% with button_text="Турніри та події" %}
-        {% with ref="#events" %}
+        {% with ref="/#events" %}
         {% include 'buttons/header-button.html' %}
         {% endwith %}
         {% endwith %}
@@ -72,22 +72,22 @@
         <div class="hidden w-full md:block md:w-auto lg:hidden absolute top-10 left-0" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border-b border-orange-700 rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
                 <li>
-                    <a href="#about"
-                       class="block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3"
+                    <a href="/#about"
+                       class="navigator block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3"
                        aria-current="page">Про клуб</a>
                 </li>
                 <li>
-                    <a href="#games"
-                       class="block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Колекція
+                    <a href="/#games"
+                       class="navigator block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Колекція
                         ігор</a>
                 </li>
                 <li>
-                    <a href="#events"
-                       class="block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Турніри та події</a>
+                    <a href="/#events"
+                       class="navigator block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Турніри та події</a>
                 </li>
                 <li>
                     <a href="/booking"
-                       class="block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Бронь столу</a>
+                       class="navigator block px-3 text-white rounded md:bg-transparent md:p-0 border-b-4 border-red-700 mx-1 my-3">Бронь столу</a>
                 </li>
             </ul>
         </div>
@@ -98,6 +98,14 @@
 <script>
     const button = document.getElementById('menu-button');
     const toggle = document.getElementById('navbar-default');
+    const navLinks = document.querySelectorAll('.navigator');
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            button.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            toggle.classList.add('hidden');
+        });
+    });
 
     button.addEventListener('click', () => {
         if (toggle.classList.contains('hidden')) {
