@@ -1,5 +1,6 @@
-<header class="m-auto flex justify-between align-middle bg-black px-16 py-2 sticky top-0 z-50 hidden lg:container" id="start">
-    <div class="text-white flex items-center text-gray-300">
+<header class="container m-auto flex lg:justify-between align-middle bg-black lg:px-16 py-2 sticky top-0 z-50 justify-end"
+        id="start">
+    <div class="text-white hidden lg:flex items-center text-gray-300">
         <a href="/"
            class="group relative inline-block overflow-hidden rounded border border-black p-3 text-gray-300">
             <span class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-red-800 transition-all duration-200 group-hover:w-full"></span>
@@ -15,7 +16,7 @@
         {% endwith %}
         {% endwith %}
 
-        {% with button_text="Коллекція ігор" %}
+        {% with button_text="Колекція ігор" %}
         {% with ref="#games" %}
         {% include 'buttons/header-button.html' %}
         {% endwith %}
@@ -33,7 +34,7 @@
         {% endwith %}
         {% endwith %}
     </div>
-    <div class="text-white flex items-center text-gray-300">
+    <div class="text-white hidden lg:flex items-center text-gray-300">
         <a href="#" class="mx-3 hover:text-white p-3 rounded text-2xl">
             <i class="fa-brands fa-telegram"></i>
         </a>
@@ -44,11 +45,68 @@
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
-    <div class="text-white flex items-center text-gray-300">
+    <div class="text-white hidden lg:flex items-center text-gray-300">
         {% with button_text="Вхід / Реєстрація" %}
         {% with ref="/auth" %}
         {% include 'buttons/header-button.html' %}
         {% endwith %}
         {% endwith %}
     </div>
+
+    <div>
+        <div class="flex justify-between">
+            <a href="/"
+               class="group relative inline-block overflow-hidden rounded border border-black p-3 text-gray-300 inline-flex md:hidden">
+                <span class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-red-800 transition-all duration-200 group-hover:w-full"></span>
+                <span class="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-red-800 transition-all duration-200 group-hover:h-full"></span>
+                <span class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-red-800 transition-all duration-200 group-hover:w-full"></span>
+                <span class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-red-800 transition-all duration-200 group-hover:h-full"></span>
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <button type="button" id="menu-button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-xl text-gray-500 rounded-lg md:hidden">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="hidden w-full md:block md:w-auto lg:hidden absolute top-10 left-0" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="#about"
+                       class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                       aria-current="page">Про клуб</a>
+                </li>
+                <li>
+                    <a href="#games"
+                       class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Колекція
+                        ігор</a>
+                </li>
+                <li>
+                    <a href="#events"
+                       class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Турніри та події</a>
+                </li>
+                <li>
+                    <a href="/booking"
+                       class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Бронь столу</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </header>
+
+{% block script %}
+<script>
+    const button = document.getElementById('menu-button');
+    const toggle = document.getElementById('navbar-default');
+
+    button.addEventListener('click', () => {
+        if (toggle.classList.contains('hidden')) {
+            button.innerHTML = '<i class="fa-solid fa-times"></i>';
+            toggle.classList.remove('hidden');
+        } else {
+            button.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            toggle.classList.add('hidden');
+        }
+    });
+</script>
+{% endblock %}
